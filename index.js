@@ -103,6 +103,7 @@ module.exports = (function() {
      */
     update(connectionName, tableName, query, data, cb) {
       debug("update", tableName, query)
+      data.id = query.where.id;
       connections[connectionName].tables[tableName].update(query, data, cb)
     },
 
